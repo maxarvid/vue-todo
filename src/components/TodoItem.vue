@@ -1,11 +1,15 @@
 <script setup lang="ts">
-const { text } = defineProps(["text"]);
+import { useTodoStore } from "../stores/todo";
+const { todo } = defineProps(["todo"]);
+
+const store = useTodoStore();
+const { deleteTodo } = store;
 </script>
 
 <template>
   <li>
-    <p>{{ text }}</p>
-    <button data-cy="todo-delete-btn">Click me</button>
+    <p>{{ todo.text }}</p>
+    <button @click="deleteTodo(todo.id)" data-cy="todo-delete-btn">Delete Todo</button>
   </li>
 </template>
 

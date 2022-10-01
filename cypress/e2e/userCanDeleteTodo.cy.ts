@@ -11,7 +11,7 @@ describe('When the user wants to delete a Todo', () => {
     cy.get('[data-cy=todo-list]').children().first().get('[data-cy=todo-delete-btn]').should('be.visible')
   });
 
-  it.only('is expected to remove the deleted todo when clicked', () => {
+  it('is expected to remove the deleted todo when clicked', () => {
     cy.get('[data-cy=todo-list]').children().first().within(() => {
       cy.get('[data-cy=todo-delete-btn]').click()
     })
@@ -19,8 +19,10 @@ describe('When the user wants to delete a Todo', () => {
   });
 
   it('is expected to remove the todo from localStorage', () => {
-    cy.get('[data-cy=todo-list]').children().first().get('[data-cy=todo-delete-btn]').should(() => {
-      expect(JSON.parse(localStorage.getItem('toDos') || "[]")).to.not.include.text('Laundry')
+    cy.get('[data-cy=todo-list]').children().first().within(() => {
+      cy.get('[data-cy=todo-delete-btn]').click().should(() => {
+        expect(JSON.parse(localStorage.getItem('toDos') || "[]")).to.not.contain('Laundry')
+      })
     })
   });
 });

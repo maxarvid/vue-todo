@@ -18,8 +18,9 @@ export const useTodoStore = defineStore('todo', () => {
     todos.value.push(todo)
     localStorage.setItem('toDos', JSON.stringify(todos.value))
   }
-  const deleteTodo = (todo: string) => {
-    debugger
+  const deleteTodo = (id: string) => {
+    todos.value = todos.value.filter((todo: Todo) => todo.id !== id)
+    localStorage.setItem('toDos', JSON.stringify(todos.value))
   }
 
   return { todos, fetchTodos, saveTodo, deleteTodo }

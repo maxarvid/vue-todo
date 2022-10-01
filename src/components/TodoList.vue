@@ -11,7 +11,7 @@ fetchTodos();
 
 <template>
   <ul v-if="todos.length !== 0" data-cy="todo-list">
-    <TodoItem v-for="todo in todos" :key="todo.id" :text="todo.text"/>
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
   </ul>
 </template>
 

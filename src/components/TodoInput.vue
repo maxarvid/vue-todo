@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useTodoStore } from "../stores/todo";
+import { InboxArrowDownIcon } from "@heroicons/vue/20/solid";
 const todo = ref("");
 
 const store = useTodoStore();
@@ -23,13 +24,11 @@ const handleSaveTodo = () => {
       placeholder="add a todo"
       class="basis-3/4 border-2 rounded border-none"
     />
-    <div
-      @click="handleSaveTodo"
+    <InboxArrowDownIcon
       data-cy="save-todo-btn"
-      class="basis-1/4 rounded-full cursor-pointer"
-    >
-      Save
-    </div>
+      @click="handleSaveTodo"
+      class="basis-1/4 rounded-full cursor-pointer h-6 w-6 text-green-600"
+    />
   </div>
 </template>
 

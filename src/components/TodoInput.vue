@@ -5,10 +5,17 @@ const todo = ref("");
 
 const store = useTodoStore();
 const { saveTodo } = store;
+
+const handleSaveTodo = () => {
+  saveTodo({ text: todo.value });
+  todo.value = "";
+};
 </script>
 
 <template>
-  <div class="flex flex-row p-6 my-2 max-w-sm mx-auto border-2 border-green-600 rounded-xl">
+  <div
+    class="flex flex-row p-6 my-2 max-w-sm mx-auto border-2 border-green-600 rounded-xl"
+  >
     <input
       v-model="todo"
       data-cy="todo-input"
@@ -17,7 +24,7 @@ const { saveTodo } = store;
       class="basis-3/4 border-2 rounded border-none"
     />
     <div
-      @click="saveTodo({ text: todo })"
+      @click="handleSaveTodo"
       data-cy="save-todo-btn"
       class="basis-1/4 rounded-full cursor-pointer"
     >

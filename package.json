@@ -14,6 +14,7 @@
     "cypress:ci": "CI=true start-test vite 5173 cy:run"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.11",
     "pinia": "^2.0.22",
     "uid": "^2.0.1",
     "vue": "^3.2.38"

@@ -3,7 +3,7 @@ describe('When the user wants to see their todos', () => {
     beforeEach(() => {
       cy.visit("/", {
         onBeforeLoad: () => {
-          localStorage.setItem('toDos', JSON.stringify(["Laundy", "Make Todo App", "Walk dog"]))
+          localStorage.setItem('toDos', JSON.stringify(["Laundry", "Make Todo App", "Walk dog"]))
         }
       })
     });

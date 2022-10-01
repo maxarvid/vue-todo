@@ -7,10 +7,10 @@ const { deleteTodo } = store;
 </script>
 
 <template>
-  <li>
+  <div>
     <p>{{ todo.text }}</p>
     <button @click="deleteTodo(todo.id)" data-cy="todo-delete-btn">Delete Todo</button>
-  </li>
+  </div>
 </template>
 
 <style scoped></style>

@@ -10,9 +10,13 @@ fetchTodos();
 </script>
 
 <template>
-  <ul v-if="todos.length !== 0" data-cy="todo-list">
-    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
-  </ul>
+  <div
+    v-if="todos.length !== 0"
+    data-cy="todo-list"
+    class="p-6 max-w-sm mx-auto border border-green-600 rounded-xl"
+  >
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
+  </div>
 </template>
 
 <style scoped></style>

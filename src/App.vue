@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TodoInput from './components/TodoInput.vue';
+import TodoList from './components/TodoList.vue';
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import TodoInput from './components/TodoInput.vue';
   </header>
 
   <main class="container mx-auto sm">
-    <p>Hello World</p>
+    <TodoList />
     <TodoInput />
   </main>
 </template>

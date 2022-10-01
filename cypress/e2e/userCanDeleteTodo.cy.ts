@@ -8,19 +8,19 @@ describe('When the user wants to delete a Todo', () => {
   });
 
   it('is expected to render a delete button', () => {
-    cy.get('[data-cy=todo-list]').children().first().get('[data-cy=todo-delete-btn]').should('be.visible')
+    cy.get('[data-cy=todo-list]').children().first().get('svg').should('be.visible')
   });
 
   it('is expected to remove the deleted todo when clicked', () => {
     cy.get('[data-cy=todo-list]').children().first().within(() => {
-      cy.get('[data-cy=todo-delete-btn]').click()
+      cy.get('svg').click()
     })
     cy.get('[data-cy=todo-list]').children().should('not.include.text', 'Laundry')
   });
 
   it('is expected to remove the todo from localStorage', () => {
     cy.get('[data-cy=todo-list]').children().first().within(() => {
-      cy.get('[data-cy=todo-delete-btn]').click().should(() => {
+      cy.get('svg').click().should(() => {
         expect(JSON.parse(localStorage.getItem('toDos') || "[]")).to.not.contain('Laundry')
       })
     })

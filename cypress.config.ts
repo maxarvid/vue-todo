@@ -6,6 +6,6 @@ export default defineConfig({
     baseUrl: 'http://localhost:5173',
     video: false,
     screenshotOnRunFailure: false,
-    excludeSpecPattern: process.env.CI ? ['cypress/e2e/all.cy.js'] : [],
+    excludeSpecPattern: process.env.CI ? ['cypress/e2e/all.cy.ts'] : [],
   }
 })

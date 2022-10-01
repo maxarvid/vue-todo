@@ -11,7 +11,7 @@
     "cy:open": "cypress open --e2e -b chrome",
     "cy:run": "cypress run",
     "cypress": "start-test vite 5173 cy:open",
-    "cypress:ci": "start-test vite 5173 cy:run"
+    "cypress:ci": "CI=true start-test vite 5173 cy:run"
   },
   "dependencies": {
     "pinia": "^2.0.22",

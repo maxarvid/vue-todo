@@ -8,18 +8,18 @@ const { saveTodo } = store;
 </script>
 
 <template>
-  <div class="flex flex-row p-6 my-2 max-w-sm mx-auto border border-green-600 rounded-xl">
+  <div class="flex flex-row p-6 my-2 max-w-sm mx-auto border-2 border-green-600 rounded-xl">
     <input
       v-model="todo"
       data-cy="todo-input"
       type="text"
       placeholder="add a todo"
-      class="border-2 rounded"
+      class="basis-3/4 border-2 rounded border-none"
     />
     <div
       @click="saveTodo({ text: todo })"
       data-cy="save-todo-btn"
-      class="rounded-full cursor-pointer"
+      class="basis-1/4 rounded-full cursor-pointer"
     >
       Save
     </div>

@@ -7,9 +7,9 @@ const { deleteTodo } = store;
 </script>
 
 <template>
-  <div>
-    <p>{{ todo.text }}</p>
-    <button @click="deleteTodo(todo.id)" data-cy="todo-delete-btn">Delete Todo</button>
+  <div class="flex flex-row">
+    <div class="basis-3/4">{{ todo.text }}</div>
+    <div @click="deleteTodo(todo.id)" data-cy="todo-delete-btn" class="basis-1/4 cursor-pointer">Delete</div>
   </div>
 </template>
 

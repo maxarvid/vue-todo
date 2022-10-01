@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTodoStore } from "@/stores/todo";
 import { storeToRefs } from "pinia";
+import TodoItem from "./TodoItem.vue";
 
 const store = useTodoStore();
 const { fetchTodos } = store;
@@ -10,9 +11,7 @@ fetchTodos();
 
 <template>
   <ul v-if="todos.length !== 0" data-cy="todo-list">
-    <li v-for="(todo, index) in todos" :key="index">
-      {{ todo }}
-    </li>
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
   </ul>
 </template>
 

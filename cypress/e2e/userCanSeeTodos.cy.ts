@@ -3,7 +3,8 @@ describe('When the user wants to see their todos', () => {
     beforeEach(() => {
       cy.visit("/", {
         onBeforeLoad: () => {
-          localStorage.setItem('toDos', JSON.stringify(["Laundry", "Make Todo App", "Walk dog"]))
+          localStorage.setItem('toDos', JSON.stringify(
+            [{ text: "Laundry", id: '1' }, { text: "Make Todo App", id: '2' }, { text: "Walk dog", id: '3' }]))
         }
       })
     });
@@ -13,7 +14,7 @@ describe('When the user wants to see their todos', () => {
     });
 
     it('is expected that the first Todo is "Laundry"', () => {
-      cy.get('[data-cy=todo-list]').children().first().should('have.text', 'Laundry')
+      cy.get('[data-cy=todo-list]').children().first().should('include.text', 'Laundry')
     });
 
   });

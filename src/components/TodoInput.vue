@@ -16,7 +16,7 @@ const { saveTodo } = store;
     class="border-2 rounded"
   />
   <div
-    @click="saveTodo(todo)"
+    @click="saveTodo({text: todo})"
     data-cy="save-todo-btn"
     class="rounded-full cursor-pointer"
   >

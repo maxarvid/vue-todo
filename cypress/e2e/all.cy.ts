@@ -1,2 +1,3 @@
 import './userCanVisitApp.cy'
-import './userCavSeeTodos.cy'
+import './userCanSeeTodos.cy'
+import './userCanDeleteTodo.cy'

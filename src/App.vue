@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import TodoInput from './components/TodoInput.vue';
+import TodoList from './components/TodoList.vue';
 </script>
 
 <template>
   <header>
-    <p>Todo App</p>
+    <p data-cy="app-title">Todo Vue App</p>
   </header>
 
-  <main>
-    <p>Hello World</p>
+  <main class="container mx-auto sm">
+    <TodoList />
+    <TodoInput />
   </main>
 </template>
 

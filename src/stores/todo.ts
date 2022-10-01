@@ -14,6 +14,7 @@ export const useTodoStore = defineStore('todo', () => {
     todos.value = (JSON.parse(localStorage.getItem('toDos') || '[]'))
   }
   const saveTodo = (todo: Todo) => {
+    if (todo.text === '') return
     todo.id = uid()
     todos.value.push(todo)
     localStorage.setItem('toDos', JSON.stringify(todos.value))

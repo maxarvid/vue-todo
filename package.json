@@ -10,7 +10,8 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "cy:open": "cypress open --e2e -b chrome",
     "cy:run": "cypress run",
-    "cypress": "start-test vite 5173 cy:open"
+    "cypress": "start-test vite 5173 cy:open",
+    "cypress:ci": "start-test vite 5173 cy:run"
   },
   "dependencies": {
     "vue": "^3.2.38"

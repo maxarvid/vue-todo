@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.22",
+    "uid": "^2.0.1",
     "vue": "^3.2.38"
   },
   "devDependencies": {

@@ -13,14 +13,14 @@ describe('When the user wants to delete a Todo', () => {
 
   it('is expected to remove the deleted todo when clicked', () => {
     cy.get('[data-cy=todo-list]').children().first().within(() => {
-      cy.get('svg').click()
+      cy.get('[data-cy=todo-icons]').last().click()
     })
     cy.get('[data-cy=todo-list]').children().should('not.include.text', 'Laundry')
   });
 
   it('is expected to remove the todo from localStorage', () => {
     cy.get('[data-cy=todo-list]').children().first().within(() => {
-      cy.get('svg').click().should(() => {
+      cy.get('[data-cy=todo-icons]').last().click().should(() => {
         expect(JSON.parse(localStorage.getItem('toDos') || "[]")).to.not.contain('Laundry')
       })
     })

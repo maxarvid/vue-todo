@@ -7,5 +7,9 @@ export default defineConfig({
     video: false,
     screenshotOnRunFailure: false,
     excludeSpecPattern: process.env.CI ? ['cypress/e2e/all.cy.ts'] : [],
+    setupNodeEvents(on, config) {
+      require('@cypress/code-coverage/task')(on, config)
+      return config
+    }
   }
 })

@@ -1,7 +1,7 @@
 describe('When the user wants to see their todos', () => {
   describe('with Todos stored in localStorage', () => {
     beforeEach(() => {
-      cy.visitWithTodos([{ text: "Laundry", id: '1', completed: false }, { text: "Make Todo App", id: '2', completed: false }, { text: "Walk dog", id: '3', completed: false }])
+      cy.visitWithTodos()
     });
 
     it('is expected to display the three todos in the app', () => {

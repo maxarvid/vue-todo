@@ -1,6 +1,6 @@
 describe('When the user wants to delete a Todo', () => {
   beforeEach(() => {
-    cy.visitWithTodos([{ text: "Laundry", id: '1', completed: false }, { text: "Make Todo App", id: '2', completed: false }, { text: "Walk dog", id: '3', completed: false }])
+    cy.visitWithTodos()
   });
 
   it('is expected to render a delete button', () => {

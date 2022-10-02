@@ -3,4 +3,4 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/01ffffeaa69558a5280d/test_coverage)](https://codeclimate.com/github/maxarvid/vue-todo/test_coverage)
 # Vue Todo
 
-A simple Vue 3 Todo app storing Todos in localStorage, deployed to Netlify.
+A simple Vue 3 Todo app storing Todos in localStorage, deployed to Netlify [here](https://max-todo-vue.netlify.app).

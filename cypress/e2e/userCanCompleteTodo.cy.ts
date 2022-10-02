@@ -1,10 +1,6 @@
 describe('When user intends to complete a Todo', () => {
   beforeEach(() => {
-    cy.visit('/', {
-      onBeforeLoad: () => {
-        localStorage.setItem('toDos', JSON.stringify([{ text: 'Get groceries', id: '1', completed: false }]))
-      }
-    })
+    cy.visitWithTodo({ text: 'Get groceries', id: '1', completed: false })
   });
 
   it('is expected to render a completion icon', () => {

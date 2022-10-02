@@ -35,5 +35,29 @@
 //     }
 //   }
 // }
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      visitWithTodo(todo: {text: string, id: string, completed: boolean}): Chainable<void>
+      visitWithTodos(todos: {text: string, id: string, completed: boolean}[] ): Chainable<void>
+    }
+  }
+}
 
-export {}
+Cypress.Commands.add('visitWithTodos', (todos) => {
+  cy.visit('/', {
+    onBeforeLoad: () => {
+      localStorage.setItem('toDos', JSON.stringify(todos))
+    }
+  })
+})
+
+Cypress.Commands.add('visitWithTodo', (todo) => {
+  cy.visit('/', {
+    onBeforeLoad: () => {
+      localStorage.setItem('toDos', JSON.stringify([todo]))
+    }
+  })
+})
+
+export { }

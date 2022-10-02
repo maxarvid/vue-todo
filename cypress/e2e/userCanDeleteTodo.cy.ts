@@ -1,10 +1,6 @@
 describe('When the user wants to delete a Todo', () => {
   beforeEach(() => {
-    cy.visit('/', {
-      onBeforeLoad: () => {
-        localStorage.setItem('toDos', JSON.stringify([{ text: "Laundry", id: '1' }, { text: "Make Todo App", id: '2' }, { text: "Walk dog", id: '3' }]))
-      }
-    })
+    cy.visitWithTodos([{ text: "Laundry", id: '1', completed: false }, { text: "Make Todo App", id: '2', completed: false }, { text: "Walk dog", id: '3', completed: false }])
   });
 
   it('is expected to render a delete button', () => {

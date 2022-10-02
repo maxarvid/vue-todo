@@ -6,6 +6,7 @@ import { uid } from "uid";
 type Todo = {
   text: string
   id?: string
+  completed: boolean
 }
 
 export const useTodoStore = defineStore('todo', () => {
@@ -13,16 +14,25 @@ export const useTodoStore = defineStore('todo', () => {
   const fetchTodos = () => {
     todos.value = (JSON.parse(localStorage.getItem('toDos') || '[]'))
   }
-  const saveTodo = (todo: Todo) => {
+  const addTodo = (todo: Todo) => {
     if (todo.text === '') return
     todo.id = uid()
     todos.value.push(todo)
-    localStorage.setItem('toDos', JSON.stringify(todos.value))
+    saveTodos()
+  }
+  const completeTodo = (id: string) => {
+    todos.value = todos.value.map(todo => {
+      return todo.id === id ? { ...todo, completed: true } : todo
+    })
+    saveTodos()
   }
   const deleteTodo = (id: string) => {
     todos.value = todos.value.filter((todo: Todo) => todo.id !== id)
+    saveTodos()
+  }
+  const saveTodos = () => {
     localStorage.setItem('toDos', JSON.stringify(todos.value))
   }
 
-  return { todos, fetchTodos, saveTodo, deleteTodo }
+  return { todos, fetchTodos, addTodo, deleteTodo, completeTodo }
 })

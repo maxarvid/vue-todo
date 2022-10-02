@@ -5,10 +5,10 @@ import { InboxArrowDownIcon } from "@heroicons/vue/20/solid";
 const todo = ref("");
 
 const store = useTodoStore();
-const { saveTodo } = store;
+const { addTodo } = store;
 
 const handleSaveTodo = () => {
-  saveTodo({ text: todo.value });
+  addTodo({ text: todo.value, completed: false });
   todo.value = "";
 };
 </script>

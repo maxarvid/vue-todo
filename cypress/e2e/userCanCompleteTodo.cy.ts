@@ -11,7 +11,7 @@ describe('When user intends to complete a Todo', () => {
     cy.get("[data-cy=todo-icons]").children().first().should('be.visible')
   });
 
-  it.only('is expected to store the change in localStorage upon click', () => {
+  it('is expected to store the change in localStorage upon click', () => {
     cy.get("[data-cy=todo-icons]").children().first().click().should(() => {
       expect(JSON.parse(localStorage.getItem('toDos') || '[]')[0].completed).to.be.true
     })
@@ -19,6 +19,11 @@ describe('When user intends to complete a Todo', () => {
 
   it('is expected to put a strikethrough on Todo upon click', () => {
     cy.get("[data-cy=todo-icons]").children().first().click()
-    cy.get("[data-cy=todo-list]").children().first().should('have.css', 'text-decoration: line-through')
+    cy.get("[data-cy=todo-text]").should('have.class', 'line-through')
   });
+
+  it('is expected not to display the complete icon after completion', () => {
+    cy.get("[data-cy=todo-icons]").children().first().click()
+    cy.get("[data-cy=todo-icons]").children().should('have.length', 1)
+  })
 });

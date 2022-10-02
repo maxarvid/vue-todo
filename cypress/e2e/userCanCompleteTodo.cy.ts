@@ -20,6 +20,6 @@ describe('When user intends to complete a Todo', () => {
 
   it('is expected not to display the complete icon after completion', () => {
     cy.get("[data-cy=todo-icons]").children().first().click()
-    cy.get("[data-cy=todo-icons]").children().should('have.length', 1)
+    cy.get("[data-cy=todo-icons]").children().should('have.length', 2)
   })
 });

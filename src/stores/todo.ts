@@ -20,6 +20,12 @@ export const useTodoStore = defineStore('todo', () => {
     todos.value.push(todo)
     saveTodos()
   }
+  const updateTodo = (updatedTodo: Todo) => {
+    todos.value = todos.value.map(todo => {
+      return todo.id === updatedTodo.id ? { ...todo, text: updatedTodo.text } : todo
+    })
+    saveTodos()
+  }
   const completeTodo = (id: string) => {
     todos.value = todos.value.map(todo => {
       return todo.id === id ? { ...todo, completed: true } : todo
@@ -34,5 +40,5 @@ export const useTodoStore = defineStore('todo', () => {
     localStorage.setItem('toDos', JSON.stringify(todos.value))
   }
 
-  return { todos, fetchTodos, addTodo, deleteTodo, completeTodo }
+  return { todos, fetchTodos, addTodo, updateTodo, deleteTodo, completeTodo }
 })

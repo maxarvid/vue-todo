@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import './assets/style.css'
 
-const pinia  =createPinia()
+const pinia  = createPinia()
 const app = createApp(App)
 
 app.use(pinia)

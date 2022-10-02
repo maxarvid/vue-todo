@@ -38,8 +38,8 @@
 declare global {
   namespace Cypress {
     interface Chainable {
-      visitWithTodo(todo: {text: string, id: string, completed: boolean}): Chainable<void>
-      visitWithTodos(todos: {text: string, id: string, completed: boolean}[] ): Chainable<void>
+      visitWithTodo(todo?: { text: string, id: string, completed: boolean }): Chainable<void>
+      visitWithTodos(todos: { text: string, id: string, completed: boolean }[]): Chainable<void>
     }
   }
 }
@@ -53,9 +53,14 @@ Cypress.Commands.add('visitWithTodos', (todos) => {
 })
 
 Cypress.Commands.add('visitWithTodo', (todo) => {
+  const defaultTodo = {
+    text: 'Adjust bicycle brakes',
+    id: '666',
+    completed: false
+  }
   cy.visit('/', {
     onBeforeLoad: () => {
-      localStorage.setItem('toDos', JSON.stringify([todo]))
+      localStorage.setItem('toDos', JSON.stringify([todo ? todo : defaultTodo]))
     }
   })
 })

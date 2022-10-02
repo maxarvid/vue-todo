@@ -1,9 +1,8 @@
 // @ts-nocheck
 import { fileURLToPath, URL } from 'node:url'
-
+import istanbul from 'vite-plugin-istanbul'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import type { NodeTransform } from '@vue/compiler-core'
 
 
 const removeDataTestAttrs = (node) => {
@@ -20,7 +19,14 @@ export default defineConfig({
         nodeTransforms: process.env.NODE_ENV === 'production' ? [removeDataTestAttrs] : []
       }
     }
-  })],
+  }),
+  istanbul({
+    include: 'src/*',
+    exclude: ['node_modules', 'test/'],
+    extension: ['.js', '.ts', '.vue'],
+    cypress: true
+  })
+],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

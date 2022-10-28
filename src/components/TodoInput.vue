@@ -20,6 +20,7 @@ const handleSaveTodo = () => {
     <input
       v-model="todo"
       data-cy="todo-input"
+      @keyup.enter="handleSaveTodo"
       type="text"
       placeholder="add a todo"
       class="basis-3/4 border-2 rounded border-none"
